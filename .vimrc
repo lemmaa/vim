@@ -462,7 +462,7 @@ endif
 
 "--------------------------------------------------------------------------------
 
-if PlugLoaded('vim-clipper')
+if 1 "PlugLoaded('vim-clipper')
   let g:ClipperAddress = $CLIPPER_SERVER
   call clipper#set_invocation('nc -N $CLIPPER_SERVER 8377')
 endif
