@@ -51,6 +51,7 @@ Plug 'wincent/vim-clipper'
 Plug 'rhysd/vim-clang-format'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'bitc/vim-bad-whitespace'
 
 " Initialize plugin system
 call plug#end()
@@ -525,12 +526,6 @@ au BufNewFile,BufRead *.py
       \ set softtabstop=4 |
       \ set tabstop=4 |
       \ set textwidth=79 
-
-"--------------------------------------------------------------------------------
-"
-" Mark unnecessary white space to red
-"
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.cc,*.cpp,*.c++,*.h,*.hpp,*.h++,*.sh match BadWhitespace /\s\+$/
 
 "--------------------------------------------------------------------------------
 "
