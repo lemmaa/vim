@@ -42,8 +42,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 Plug 'itchyny/lightline.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'daviesjamie/vim-base16-lightline'
 Plug 'zhimsel/vim-stay'
 Plug 'Yggdroot/indentLine'
 Plug 'machakann/vim-highlightedyank'
@@ -167,11 +165,6 @@ endif
 
 "--------------------------------------------------------------------------------
 
-"if PlugLoaded('vim-github-dashboard')
-"endif
-
-"--------------------------------------------------------------------------------
-
 if 1 "PlugLoaded('nerdtree')
   nmap <C-n> :NERDTreeToggle<CR>
   let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -186,7 +179,7 @@ endif
 
 "--------------------------------------------------------------------------------
 
-if PlugLoaded('fzf.nvim')
+if 1 "PlugLoaded('fzf.nvim')
   set rtp+=~/.fzf
 
   " " This is the default extra key bindings
@@ -242,7 +235,7 @@ endif
 
 "--------------------------------------------------------------------------------
 
-if PlugLoaded('coc.nvim')
+if 1 "PlugLoaded('coc.nvim')
   " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
   " unicode characters in the file autoload/float.vim
   set encoding=utf-8
@@ -421,25 +414,9 @@ if 1 "PlugLoaded('lightline.vim')
         \ }
 endif
 
-"--------------------------------------------------------------------------------
-
-if 1 "PlugLoaded('base16-vim')
-  colorscheme base16-google-dark
-endif
-
-"--------------------------------------------------------------------------------
-
-if 1 "PlugLoaded('vim-base16-lightline')
-  let g:lightline = {
-        \   'colorscheme': 'base16'
-        \ }
-endif
-
-"--------------------------------------------------------------------------------
-
-if PlugLoaded('indentLine')
+if 1 "PlugLoaded('indentLine')
   "let g:indentLine_enabled = 0
-  let g:indentLine_char = '┆'
+  "let g:indentLine_char = '┆'
   "let g:indentLine_char = '|'
   "let g:indentLine_char = '│'
   let g:indentLine_setColors = 1
@@ -453,7 +430,7 @@ endif
 
 "--------------------------------------------------------------------------------
 
-if PlugLoaded('vim-highlightedyank')
+if 1 "PlugLoaded('vim-highlightedyank')
   let g:highlightedyank_highlight_duration = 1000
   "highlight HighlightedyankRegion cterm=reverse gui=reverse
   if !exists('##TextYankPost')
@@ -470,7 +447,7 @@ endif
 
 "--------------------------------------------------------------------------------
 
-if PlugLoaded('vim-clang-format')
+if 1 "PlugLoaded('vim-clang-format')
   let g:clang_format#detect_style_file = 1
   "let g:clang_format#auto_format = 1
   "let g:clang_format#auto_format_on_insert_leave = 1
@@ -498,20 +475,22 @@ endif
 
 "--------------------------------------------------------------------------------
 
-if PlugLoaded('vim-gitgutter')
-  nmap ]h <Plug>GitGutterNextHunk
-  nmap [h <Plug>GitGutterPrevHunk
+if 1 "PlugLoaded('vim-gitgutter')
+  nmap ]h <Plug>(GitGutterNextHunk)
+  nmap [h <Plug>(GitGutterPrevHunk)
 endif
 
 "--------------------------------------------------------------------------------
 
-if PlugLoaded('vim-fugitive')
+if 1 "PlugLoaded('vim-fugitive')
 endif
 
 "--------------------------------------------------------------------------------
 
 set cmdheight=1
-"set background=dark
+set background=dark
+
+colorscheme peaksea
 
 "--------------------------------------------------------------------------------
 "
