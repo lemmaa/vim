@@ -50,6 +50,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'bitc/vim-bad-whitespace'
+Plug 'chriskempson/base16-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -488,9 +489,10 @@ endif
 "--------------------------------------------------------------------------------
 
 set cmdheight=1
-set background=dark
+"set background=dark
 
-colorscheme peaksea
+"colorscheme peaksea
+"colorscheme base16-default-dark
 
 "--------------------------------------------------------------------------------
 "
