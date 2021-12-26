@@ -51,6 +51,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'bitc/vim-bad-whitespace'
 Plug 'chriskempson/base16-vim'
+Plug 'mike-hearn/base16-vim-lightline'
 
 " Initialize plugin system
 call plug#end()
@@ -410,9 +411,9 @@ endif
 if 1 "PlugLoaded('lightline.vim')
   set laststatus=2
   set noshowmode
-  let g:lightline = {
-        \   'colorscheme': 'wombat'
-        \ }
+"  let g:lightline = {
+"        \   'colorscheme': 'base16-google-dark'
+"        \ }
 endif
 
 if 1 "PlugLoaded('indentLine')
@@ -492,7 +493,7 @@ set cmdheight=1
 "set background=dark
 
 "colorscheme peaksea
-"colorscheme base16-default-dark
+"colorscheme base16-google-dark
 
 "--------------------------------------------------------------------------------
 "
