@@ -52,6 +52,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'bitc/vim-bad-whitespace'
 Plug 'chriskempson/base16-vim'
 Plug 'mike-hearn/base16-vim-lightline'
+Plug 'tomasiser/vim-code-dark'
 
 " Initialize plugin system
 call plug#end()
@@ -476,6 +477,7 @@ set cmdheight=1
 
 "colorscheme peaksea
 "colorscheme base16-google-dark
+colorscheme codedark
 
 "--------------------------------------------------------------------------------
 "
