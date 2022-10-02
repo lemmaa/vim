@@ -477,7 +477,6 @@ set cmdheight=1
 
 "colorscheme peaksea
 "colorscheme base16-google-dark
-colorscheme codedark
 
 "--------------------------------------------------------------------------------
 "
