@@ -92,9 +92,10 @@ set incsearch
 " Folding configuration
 "
 
-set nofoldenable
+set foldenable
+set foldcolumn=5
 set foldmethod=syntax
-"set foldlevelstart=99
+set foldlevelstart=99
 
 function! FoldText()
   let winwidth = winwidth(0)
@@ -497,7 +498,7 @@ au BufNewFile,BufRead *.py
 " Custom colors
 "
 "hi  folded            cterm=none    ctermfg=yellow  gui=none        guifg=yellow
-"hi  foldcolumn                      ctermfg=yellow                  guifg=yellow
+hi  foldcolumn                      ctermfg=yellow                  guifg=yellow
 "hi! myCursorWordMatch               ctermfg=015     ctermbg=208     guifg=#000000 guibg=#ff8700
 "hi! CursorLine        term=reverse                  ctermbg=000                   guibg=darkgrey
 "hi! Search                                          ctermbg=022                   guibg=#005f00
