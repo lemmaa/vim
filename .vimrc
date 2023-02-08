@@ -476,9 +476,6 @@ endif
 set cmdheight=1
 "set background=dark
 
-"colorscheme peaksea
-"colorscheme base16-google-dark
-
 "--------------------------------------------------------------------------------
 "
 " Python formatting
@@ -493,17 +490,26 @@ au BufNewFile,BufRead *.py
       \ set tabstop=4 |
       \ set textwidth=79 
 
+
+colorscheme codedark
+
+if exists('$BASE16_THEME')
+      \ && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
+  let base16colorspace=256
+  colorscheme base16-$BASE16_THEME
+endif
+
 "--------------------------------------------------------------------------------
 "
 " Custom colors
 "
-"hi  folded            cterm=none    ctermfg=yellow  gui=none        guifg=yellow
+hi  folded            cterm=none    ctermfg=yellow  gui=none        guifg=yellow
 hi  foldcolumn                      ctermfg=yellow                  guifg=yellow
 "hi! myCursorWordMatch               ctermfg=015     ctermbg=208     guifg=#000000 guibg=#ff8700
 "hi! CursorLine        term=reverse                  ctermbg=000                   guibg=darkgrey
 "hi! Search                                          ctermbg=022                   guibg=#005f00
 "hi! CocHighlightText  term=reverse                  ctermbg=222                   guibg=#f2e496
-
+"
 "--------------------------------------------------------------------------------
 "
 " Etc.
