@@ -77,7 +77,6 @@ set cmdheight=1
 
 set t_Co=256
 set background=dark
-colorscheme PaperColor
 
 "--------------------------------------------------------------------------------
 " Folding configuration
@@ -86,9 +85,6 @@ set foldenable
 set foldcolumn=1
 set foldmethod=syntax
 set foldlevelstart=99
-
-hi Folded     ctermbg=NONE guibg=NONE
-hi FoldColumn ctermbg=NONE guibg=NONE
 
 function! FoldText()
   let winwidth = winwidth(0)
@@ -135,6 +131,22 @@ set guioptions-=m " remove Menu bar
 set guioptions-=T " remove Tool bar
 set guioptions-=r " remove Right bar
 set guioptions-=L " remove Left bar
+
+"--------------------------------------------------------------------------------
+if PlugLoaded('papercolor-theme')
+  let g:PaperColor_Theme_Options = {
+        \   'theme': {
+        \     'default': {
+        \       'transparent_background': 0
+        \     }
+        \   }
+        \ }
+	colorscheme PaperColor
+
+  if PlugLoaded('lightline.vim')
+    let g:lightline = { 'colorscheme': 'PaperColor' }
+  endif
+endif
 
 "--------------------------------------------------------------------------------
 if PlugLoaded('vim-easy-align')
@@ -462,7 +474,7 @@ if PlugLoaded('vim-transparent')
   let g:transparent_groups = ['Normal', 'Comment', 'Constant', 'Special', 'Identifier',
         \ 'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String',
         \ 'Function', 'Conditional', 'Repeat', 'Operator', 'Structure',
-        \ 'LineNr', 'NonText', 'SignColumn', 'CursorLineNr', 'EndOfBuffer']
+        \ 'LineNr', 'NonText', 'SignColumn', 'CursorLineNr', 'EndOfBuffer', 'Conceal']
 
   " Pmenu
   let g:transparent_groups += ['Pmenu']
@@ -549,12 +561,12 @@ au BufNewFile,BufRead *.py
 "--------------------------------------------------------------------------------
 " Custom colors
 "
+hi SignColumn        ctermbg=NONE   guibg=NONE
+hi Conceal           ctermbg=NONE   guibg=NONE
+hi Folded            ctermbg=NONE   guibg=NONE
+hi Foldcolumn        ctermbg=NONE   guibg=NONE
+
 hi myCursorWordMatch ctermfg=015    ctermbg=208    guifg=#000000 guibg=#ff8700
-"hi folded            cterm=none     ctermfg=yellow gui=none      guifg=yellow
-"hi foldcolumn        ctermfg=yellow guifg=yellow
-"hi CursorLine        term=reverse   ctermbg=000    guibg=darkgrey
-"hi Search            ctermbg=022    guibg=#005f00
-"hi CocHighlightText  term=reverse   ctermbg=222    guibg=#f2e496
 
 "--------------------------------------------------------------------------------
 " Etc.
