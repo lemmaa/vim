@@ -124,7 +124,8 @@ nnoremap <C-H> <C-W><C-H>
 "--------------------------------------------------------------------------------
 " GUI config
 "
-set guifont=SFMonoNerdFontC-Regular:h13
+set guifont=UbuntuMonoDerivativePowerline-Regular:h16
+"set guifont=SFMonoNerdFontC-Regular:h13
 "set guifont=D2Coding:h14
 
 set guioptions-=m " remove Menu bar
