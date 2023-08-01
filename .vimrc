@@ -543,6 +543,18 @@ if PlugLoaded('vim-github-dashboard')
 	" GitHub Enterprise
 	"let g:github_dashboard['api_endpoint'] = 'http://github.sec.samsung.net/api/v3'
 	"let g:github_dashboard['web_endpoint'] = 'http://github.sec.samsung.net'
+
+	" Default configuration for public GitHub
+	let g:github_dashboard = {
+				\ 'username': 'lemmaa'
+				\ }
+
+	" Profile named `sec`
+	let g:github_dashboard#sec = {
+				\ 'username':     'sj925.lee',
+				\ 'api_endpoint': 'http://github.sec.samsung.net/api/v3',
+				\ 'web_endpoint': 'http://github.sec.samsung.net'
+				\ }
 endif
 
 "--------------------------------------------------------------------------------
