@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
+Plug 'junegunn/gv.vim'
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'preservim/tagbar', { 'on': 'TagbarToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -33,7 +34,7 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'Uarun/vim-protobuf'
 Plug 'cespare/vim-toml'
 Plug 'ervandew/supertab'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'wellle/context.vim'
 
 Plug 'github/copilot.vim'
