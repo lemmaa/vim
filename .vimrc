@@ -77,7 +77,7 @@ set number
 set cmdheight=1
 
 set t_Co=256
-set background=dark
+set background=light
 
 "--------------------------------------------------------------------------------
 " Folding configuration
@@ -587,4 +587,7 @@ hi myCursorWordMatch ctermfg=015    ctermbg=208    guifg=#000000 guibg=#ff8700
 "
 nnoremap <F5> :match myCursorWordMatch /<C-R><C-W>/<CR>
 autocmd CursorMoved * match
+
+" set background one more time here to workaournd a bug
+set background=light
 
