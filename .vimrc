@@ -37,7 +37,7 @@ Plug 'ervandew/supertab'
 "Plug 'jiangmiao/auto-pairs'
 Plug 'wellle/context.vim'
 
-Plug 'github/copilot.vim'
+"Plug 'github/copilot.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -84,7 +84,8 @@ set background=light
 "
 set foldenable
 set foldcolumn=1
-set foldmethod=syntax
+"set foldmethod=syntax
+set foldmethod=indent
 set foldlevelstart=99
 
 function! FoldText()
@@ -125,8 +126,8 @@ nnoremap <C-H> <C-W><C-H>
 "--------------------------------------------------------------------------------
 " GUI config
 "
-set guifont=UbuntuMonoDerivativePowerline-Regular:h16
-"set guifont=SFMonoNerdFontC-Regular:h13
+"set guifont=UbuntuMonoDerivativePowerline-Regular:h16
+set guifont=SFMonoNerdFontComplete-Regular:h18
 "set guifont=D2Coding:h14
 
 set guioptions-=m " remove Menu bar
