@@ -3,41 +3,38 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-github-dashboard'
-Plug 'junegunn/gv.vim'
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'preservim/tagbar', { 'on': 'TagbarToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-github-dashboard'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/gv.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-"Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 Plug 'itchyny/lightline.vim'
-Plug 'zhimsel/vim-stay'
+Plug 'bitc/vim-bad-whitespace'
 Plug 'Yggdroot/indentLine'
 Plug 'machakann/vim-highlightedyank'
-Plug 'wincent/vim-clipper'
 Plug 'rhysd/vim-clang-format'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'bitc/vim-bad-whitespace'
+Plug 'zhimsel/vim-stay'
+Plug 'wincent/vim-clipper'
 
-"Plug 'tribela/vim-transparent'
-"Plug 'chriskempson/base16-vim'
-"Plug 'mike-hearn/base16-vim-lightline'
-"Plug 'tomasiser/vim-code-dark'
 Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'Uarun/vim-protobuf'
 Plug 'cespare/vim-toml'
 Plug 'ervandew/supertab'
-"Plug 'jiangmiao/auto-pairs'
 Plug 'wellle/context.vim'
 
-"Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
+
+Plug 'NeogitOrg/neogit'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'sindrets/diffview.nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -84,8 +81,7 @@ set background=light
 "
 set foldenable
 set foldcolumn=1
-"set foldmethod=syntax
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevelstart=99
 
 function! FoldText()
@@ -126,9 +122,10 @@ nnoremap <C-H> <C-W><C-H>
 "--------------------------------------------------------------------------------
 " GUI config
 "
+"set guifont=D2Coding:h16
 "set guifont=UbuntuMonoDerivativePowerline-Regular:h16
-set guifont=SFMonoNerdFontComplete-Regular:h18
-"set guifont=D2Coding:h14
+"set guifont=SFMonoNerdFontComplete-Regular:h16
+set guifont=MenloForPowerline-Regular:h16
 
 set guioptions-=m " remove Menu bar
 set guioptions-=T " remove Tool bar
@@ -137,15 +134,7 @@ set guioptions-=L " remove Left bar
 
 "--------------------------------------------------------------------------------
 if PlugLoaded('papercolor-theme')
-  let g:PaperColor_Theme_Options = {
-        \   'theme': {
-        \     'default': {
-        \       'transparent_background': 0
-        \     }
-        \   }
-        \ }
 	colorscheme PaperColor
-
   if PlugLoaded('lightline.vim')
     let g:lightline = { 'colorscheme': 'PaperColor' }
   endif
@@ -171,62 +160,7 @@ if 1 "PlugLoaded('tagbar')
   nmap <F8> :TagbarToggle<CR>
 endif
 
-"--------------------------------------------------------------------------------
-if PlugLoaded('fzf.nvim')
-  set rtp+=~/.fzf
-
-  " " This is the default extra key bindings
-  " let g:fzf_action = {
-  "   \ 'ctrl-t': 'tab split',
-  "   \ 'ctrl-x': 'split',
-  "   \ 'ctrl-v': 'vsplit' }
-
-  " An action can be a reference to a function that processes selected lines
-  function! s:build_quickfix_list(lines)
-    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-    copen
-    cc
-  endfunction
-
-  let g:fzf_action = {
-        \ 'ctrl-q': function('s:build_quickfix_list'),
-        \ 'ctrl-t': 'tab split',
-        \ 'ctrl-x': 'split',
-        \ 'ctrl-v': 'vsplit' }
-
-  " " Default fzf layout
-  " " - down / up / left / right
-  " let g:fzf_layout = { 'down': '~40%' }
-
-  " " You can set up fzf window using a Vim command (Neovim or latest Vim 8 required)
-  " let g:fzf_layout = { 'window': 'enew' }
-  " let g:fzf_layout = { 'window': '-tabnew' }
-  " let g:fzf_layout = { 'window': '10split enew' }
-
-  " " Customize fzf colors to match your color scheme
-  " let g:fzf_colors =
-  " \ { 'fg':      ['fg', 'Normal'],
-  "   \ 'bg':      ['bg', 'Normal'],
-  "   \ 'hl':      ['fg', 'Comment'],
-  "   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  "   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  "   \ 'hl+':     ['fg', 'Statement'],
-  "   \ 'info':    ['fg', 'PreProc'],
-  "   \ 'border':  ['fg', 'Ignore'],
-  "   \ 'prompt':  ['fg', 'Conditional'],
-  "   \ 'pointer': ['fg', 'Exception'],
-  "   \ 'marker':  ['fg', 'Keyword'],
-  "   \ 'spinner': ['fg', 'Label'],
-  "   \ 'header':  ['fg', 'Comment'] }
-
-  " " Enable per-command history.
-  " " CTRL-N and CTRL-P will be automatically bound to next-history and
-  " " previous-history instead of down and up. If you don't like the change,
-  " " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-  " let g:fzf_history_dir = '~/.local/share/fzf-history'
-endif
-
-"--------------------------------------------------------------------------------
+""--------------------------------------------------------------------------------
 if PlugLoaded('coc.nvim')
   " Some servers have issues with backup files, see #649.
   set nobackup
@@ -382,33 +316,6 @@ endif
 if PlugLoaded('lightline.vim')
   set laststatus=2
   set noshowmode
-  "  let g:lightline = {
-  "    \ 'colorscheme': 'base16-google-dark'
-  "    \ }
-endif
-
-"--------------------------------------------------------------------------------
-if PlugLoaded('indentLine')
-  "let g:indentLine_enabled = 0
-  "let g:indentLine_char = '┆'
-  "let g:indentLine_char = '|'
-  let g:indentLine_char = '│'
-  let g:indentLine_setColors = 0
-  "let g:indentLine_color_term = 239
-  "let g:indentLine_bgcolor_term = 202
-  "let g:indentLine_color_gui = '#A4E57E'
-  "let g:indentLine_bgcolor_gui = '#FF5F00'
-  "let g:indentLine_color_tty_light = 7 " (default: 4)
-  "let g:indentLine_color_dark = 1 " (default: 2)
-endif
-
-"--------------------------------------------------------------------------------
-if PlugLoaded('vim-highlightedyank')
-  let g:highlightedyank_highlight_duration = 1000
-  "hi HighlightedyankRegion cterm=reverse gui=reverse
-  if !exists('##TextYankPost')
-    map y <Plug>(highlightedyank)
-  endif
 endif
 
 "--------------------------------------------------------------------------------
@@ -445,16 +352,6 @@ if PlugLoaded('vim-clang-format')
 endif
 
 "--------------------------------------------------------------------------------
-if PlugLoaded('vim-gitgutter')
-  nmap ]h <Plug>(GitGutterNextHunk)
-  nmap [h <Plug>(GitGutterPrevHunk)
-endif
-
-"--------------------------------------------------------------------------------
-if PlugLoaded('vim-fugitive')
-endif
-
-"--------------------------------------------------------------------------------
 if PlugLoaded('context.vim')
   autocmd VimEnter     * ContextActivate
   autocmd BufAdd       * call context#update('BufAdd')
@@ -468,44 +365,6 @@ if PlugLoaded('context.vim')
 
   if exists('##WinScrolled')
     autocmd WinScrolled * call context#update('WinScrolled')
-  endif
-endif
-
-"--------------------------------------------------------------------------------
-if PlugLoaded('vim-transparent')
-  " default
-  let g:transparent_groups = ['Normal', 'Comment', 'Constant', 'Special', 'Identifier',
-        \ 'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String',
-        \ 'Function', 'Conditional', 'Repeat', 'Operator', 'Structure',
-        \ 'LineNr', 'NonText', 'SignColumn', 'CursorLineNr', 'EndOfBuffer', 'Conceal']
-
-  " Pmenu
-  let g:transparent_groups += ['Pmenu']
-
-  " coc.nvim
-  let g:transparent_groups += ['NormalFloating', 'CocFloating']
-
-  augroup transparent
-    autocmd VimEnter,ColorScheme * call MyTransparent()
-  augroup END
-
-  function! MyTransparent()
-    " Customize the highlight groups for transparency in here.
-
-    " CursorLine
-    hi CursorLine ctermfg=NONE ctermbg=239 guibg=NONE guibg=#4e4e4e
-
-    " coc.nvim
-    hi CocMenuSel ctermbg=239 guibg=#4e4e4e
-  endfunction
-endif
-
-"--------------------------------------------------------------------------------
-if PlugLoaded('base16-vim')
-  if exists('$BASE16_THEME')
-        \ && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
-    let base16colorspace=256
-    colorscheme base16-$BASE16_THEME
   endif
 endif
 
