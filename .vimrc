@@ -10,7 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/gv.vim'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+"Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'itchyny/lightline.vim'
 Plug 'bitc/vim-bad-whitespace'
@@ -22,7 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'zhimsel/vim-stay'
 Plug 'wincent/vim-clipper'
 
-Plug 'NLKNguyen/papercolor-theme'
+"Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'Uarun/vim-protobuf'
@@ -435,12 +435,13 @@ au BufNewFile,BufRead *.py
 "--------------------------------------------------------------------------------
 " Custom colors
 "
-hi SignColumn        ctermbg=NONE   guibg=NONE
-hi Conceal           ctermbg=NONE   guibg=NONE
-hi Folded            ctermbg=NONE   guibg=NONE
-hi Foldcolumn        ctermbg=NONE   guibg=NONE
+hi SignColumn        NONE
+hi Conceal           NONE  
+hi Folded            NONE 
+hi Foldcolumn        NONE 
+hi VertSplit         NONE
 
-hi myCursorWordMatch ctermfg=015    ctermbg=208    guifg=#000000 guibg=#ff8700
+hi myCursorWordMatch ctermfg=0 ctermbg=208 guifg=#000000 guibg=#ff8700
 
 "--------------------------------------------------------------------------------
 " Etc.
