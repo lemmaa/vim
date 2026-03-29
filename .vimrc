@@ -442,6 +442,7 @@ hi Conceal           NONE
 hi Folded            NONE
 hi Foldcolumn        NONE
 hi VertSplit         NONE
+hi ColorColumn       ctermbg=darkgrey    guibg=#2e2e2e
 
 ""--------------------------------------------------------------------------------
 "" Cursor word highlight
