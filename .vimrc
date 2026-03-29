@@ -7,7 +7,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bitc/vim-bad-whitespace'
 "Plug 'cespare/vim-toml'
 Plug 'chrisbra/vim-diff-enhanced'
-"Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'github/copilot.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
